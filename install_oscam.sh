@@ -41,14 +41,14 @@ install_complete_oscam() {
     systemctl enable pcscd
     systemctl start pcscd
 
-    echo "Baixando arquivos de configuração do repositório..."
-    git clone https://github.com/tauelektronik/install_oscam.git /tmp/install_oscam_temp
+    echo "Baixando arquivos de configuração e o script restart-oscam.sh do repositório..."
+    git clone https://github.com/tauelektronik/auto_oscam.git /tmp/auto_oscam_temp
 
     echo "Copiando arquivos de configuração para /usr/local/etc/..."
-    cp -r /tmp/install_oscam_temp/etc/* /usr/local/etc/
+    cp -r /tmp/auto_oscam_temp/etc/* /usr/local/etc/
 
     echo "Limpando os arquivos temporários..."
-    rm -rf /tmp/install_oscam_temp
+    rm -rf /tmp/auto_oscam_temp
 
     echo "Instalação completa do OSCam finalizada com sucesso."
 }
@@ -56,18 +56,18 @@ install_complete_oscam() {
 # Função para baixar apenas os scripts install_oscam.sh e restart-oscam.sh
 download_scripts_only() {
     echo "Baixando os scripts do repositório..."
-    git clone https://github.com/tauelektronik/install_oscam.git /tmp/install_oscam_temp
+    git clone https://github.com/tauelektronik/auto_oscam.git /tmp/auto_oscam_temp
 
     echo "Movendo restart-oscam.sh para a raiz do Linux e dando permissão de execução..."
-    cp /tmp/install_oscam_temp/restart-oscam.sh /restart-oscam.sh
+    cp /tmp/auto_oscam_temp/restart-oscam.sh /restart-oscam.sh
     chmod +x /restart-oscam.sh
 
     echo "Movendo install_oscam.sh para o diretório atual e dando permissão de execução..."
-    cp /tmp/install_oscam_temp/install_oscam.sh ./install_oscam.sh
+    cp /tmp/auto_oscam_temp/install_oscam.sh ./install_oscam.sh
     chmod +x ./install_oscam.sh
 
     echo "Limpando os arquivos temporários..."
-    rm -rf /tmp/install_oscam_temp
+    rm -rf /tmp/auto_oscam_temp
 
     echo "Scripts baixados e prontos para uso."
 }

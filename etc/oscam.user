@@ -1,0 +1,14 @@
+# oscam.user generated automatically by Streamboard OSCam 2.24.06-11791
+# Read more: https://git.streamboard.tv/common/oscam/blob/master/Distribution/doc/txt/oscam.user.txt
+
+[account]
+disabled                      = 1
+user                          = user
+pwd                           = 123
+description                   = user
+caid                          = 1861
+group                         = 1
+ident                         = 1861:000000,003811,003911
+
+
+
