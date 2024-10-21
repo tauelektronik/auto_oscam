@@ -6,9 +6,9 @@ disabled                      = 1
 user                          = user
 pwd                           = 123
 description                   = user
-caid                          = 1861
+caid                          = 1802
 group                         = 1
-ident                         = 1861:000000,003811,003911
+ident                         = 1802:000000,003811,003911
 
 
 
