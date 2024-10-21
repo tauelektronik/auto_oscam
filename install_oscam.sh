@@ -8,8 +8,8 @@ check_root() {
     fi
 }
 
-# Função para instalar todas as dependências e compilar o OSCam com arquivos de configuração
-install_complete_oscam() {
+# Função para instalar todas as dependências e compilar o OSCam sem copiar arquivos de configuração
+install_oscam_without_config() {
     echo "Atualizando os pacotes..."
     apt update && apt upgrade -y
     echo "Instalando as dependências necessárias, incluindo PCSC..."
@@ -33,6 +33,13 @@ install_complete_oscam() {
     echo "Ativando o serviço pcscd (suporte a smartcards)..."
     systemctl enable pcscd
     systemctl start pcscd
+    echo "Instalação do OSCam finalizada sem copiar arquivos de configuração."
+}
+
+# Função para instalar todas as dependências e compilar o OSCam com arquivos de configuração
+install_complete_oscam() {
+    install_oscam_without_config
+
     echo "Baixando arquivos de configuração e o script restart-oscam.sh do repositório..."
     git clone https://github.com/tauelektronik/auto_oscam.git /tmp/auto_oscam_temp
     echo "Copiando arquivos de configuração para /usr/local/etc/..."
@@ -69,7 +76,7 @@ menu() {
             install_complete_oscam
             ;;
         n|N)
-            download_scripts_only
+            install_oscam_without_config
             ;;
         *)
             echo "Opção inválida!"
