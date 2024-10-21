@@ -14,6 +14,7 @@ install_complete_oscam() {
     apt update && apt upgrade -y
 
     echo "Instalando as dependências necessárias, incluindo PCSC..."
+    apt install opensc -y
     apt install -y build-essential cmake libssl-dev libusb-1.0-0-dev libpcsclite-dev libreadline-dev libncurses5-dev libcrypto++-dev git pkg-config pcscd
 
     echo "Clonando o repositório OSCam..."
